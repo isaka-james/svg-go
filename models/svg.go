@@ -22,7 +22,7 @@ type KeyValue struct {
 // GenerateSVG generates SVG content based on the names and key-value pairs
 func (s SVGResponse) GenerateSVG() string {
     var svgContent strings.Builder
-    var temp int=0
+    var iteration_animation int=0
 
     svgContent.WriteString(`
 	<svg id="gh-dark-mode-only" width="380" height="230" xmlns="http://www.w3.org/2000/svg">
@@ -214,13 +214,16 @@ func (s SVGResponse) GenerateSVG() string {
 
     for i, kv := range keyValuePairs {
 	
-        svgContent.WriteString(fmt.Sprintf(`	<li style="animation-delay: %d ms;">
+        svgContent.WriteString(fmt.Sprintf(`
+	
+ <li style="animation-delay: %d ms;">
 		<svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:%s;" viewBox="0 0 16 16" version="1.1" width="16" height="16"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"/></svg>
 		<span class="lang">%s</span>
 		<span class="percent">%d </span>
-		</li>`,temp,colors[i],kv.Key,kv.Value)) //`<text x="10" y="%d">%s: %d</text>`, y, kv.Key, kv.Value
+		</li>
+`,iteration_animation,colors[i],kv.Key,kv.Value))
         y += 20
-        temp += 150
+        iteration_animation += 150
     }
 
 
