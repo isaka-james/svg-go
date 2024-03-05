@@ -219,7 +219,7 @@ func (s SVGResponse) GenerateSVG() string {
  <li style="animation-delay: %d ms;">
 		<svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:%s;" viewBox="0 0 16 16" version="1.1" width="16" height="16"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"/></svg>
 		<span class="lang">%s</span>
-		<span class="percent">%d </span>
+		<span class="percent">%d%</span>
 		</li>
 `,iteration_animation,colors[i],kv.Key,kv.Value))
         y += 20
